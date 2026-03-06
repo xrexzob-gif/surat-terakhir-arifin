@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 -- // SETTINGAN OWNER & KEY
-local MyUsername = "tolongggggs" -- Username lo udah gue pasang di sini
+local MyUsername = "tolongggggs" -- AKUN LO LANGSUNG TEMBUS
 local CorrectKey = "XREX"
 
 -- // LOGIKA AUTO-PASS
@@ -12,7 +12,7 @@ end
 
 local Window = Rayfield:CreateWindow({
    Name = "XREXZOB",
-   LoadingTitle = "Welcome Owner: " .. MyUsername,
+   LoadingTitle = "Owner Detected: " .. MyUsername,
    LoadingSubtitle = "by XREXZOB Team",
    ConfigurationSaving = { Enabled = false },
    KeySystem = UseKey,
@@ -27,12 +27,42 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
--- // TAB MOVEMENT (WALKSPEED)
+-- // !!! LOGIKA PELANGI NGEBUT (RGB FLOW) - BALIK LAGI !!!
+local function applyFlow(obj)
+    if not obj:FindFirstChild("NeonFlow") then
+        local gradient = Instance.new("UIGradient")
+        gradient.Name = "NeonFlow"
+        gradient.Color = ColorSequence.new({
+            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+            ColorSequenceKeypoint.new(0.3, Color3.fromRGB(0, 255, 0)),
+            ColorSequenceKeypoint.new(0.6, Color3.fromRGB(0, 255, 255)),
+            ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 0))
+        })
+        gradient.Parent = obj
+    end
+end
+
+task.spawn(function()
+    local offset = 0
+    while task.wait() do 
+        offset = offset + 0.05
+        if offset >= 1 then offset = 0 end
+        for _, v in pairs(game.CoreGui:GetDescendants()) do
+            if v:IsA("TextLabel") or v:IsA("TextButton") or v:IsA("UIStroke") then
+                applyFlow(v)
+                local f = v:FindFirstChild("NeonFlow")
+                if f then f.Offset = Vector2.new(-offset, 0) end
+            end
+        end
+    end
+end)
+
+-- // TAB MOVEMENT
 local TabMove = Window:CreateTab("Movement", 4483362458)
 
 _G.WSValue = 16
 TabMove:CreateSlider({
-   Name = "Set Speed (Geser buat atur)",
+   Name = "Set Speed",
    Range = {0, 500},
    Increment = 1,
    CurrentValue = 16,
@@ -67,16 +97,14 @@ TabPlayer:CreateInput({
    Name = "Ketik Nama Player",
    PlaceholderText = "Nama/Username...",
    RemoveTextAfterFocusLost = false,
-   Callback = function(Text)
-      TargetName = Text
-   end,
+   Callback = function(Text) TargetName = Text end,
 })
 
 TabPlayer:CreateButton({
    Name = "Teleport ke Player",
    Callback = function()
       for _, p in pairs(game.Players:GetPlayers()) do
-         if string.find(string.lower(p.Name), string.lower(TargetName)) or string.find(string.lower(p.DisplayName), string.lower(TargetName)) then
+         if string.find(string.lower(p.Name), string.lower(TargetName)) then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -3)
             break
          end
@@ -89,7 +117,7 @@ TabPlayer:CreateButton({
    Callback = function()
       _G.Nempel = true
       for _, p in pairs(game.Players:GetPlayers()) do
-         if string.find(string.lower(p.Name), string.lower(TargetName)) or string.find(string.lower(p.DisplayName), string.lower(TargetName)) then
+         if string.find(string.lower(p.Name), string.lower(TargetName)) then
             task.spawn(function()
                while _G.Nempel do
                   if p.Character and game.Players.LocalPlayer.Character then
@@ -106,12 +134,10 @@ TabPlayer:CreateButton({
 
 TabPlayer:CreateButton({
    Name = "Lepas Nempel",
-   Callback = function()
-      _G.Nempel = false
-   end,
+   Callback = function() _G.Nempel = false end,
 })
 
--- // TAB EMOTES (HYPE & OLD SCHOOL)
+-- // TAB EMOTES
 local TabEmote = Window:CreateTab("Emotes", 4483362458)
 _G.EMSpeed = 1
 _G.Track = nil
