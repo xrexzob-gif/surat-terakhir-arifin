@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 -- // SETTINGAN OWNER & KEY
-local MyUsername = "NAMA_AKUN_LO_DISINI" -- GANTI JADI USERNAME ROBLOX LO!
+local MyUsername = "tolongggggs" -- GANTI JADI USERNAME ROBLOX LO!
 local CorrectKey = "XREX" -- Key buat orang lain
 
 -- // LOGIKA AUTO-PASS (Cek Nama Akun)
