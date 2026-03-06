@@ -1,28 +1,26 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
--- // !!! MESIN PELANGI NGEBUT WARNA VIDEO (PINK-PURPLE-BLUE) !!!
+-- // !!! MESIN WARNA VIDEO (PINK-PURPLE-BLUE NGEBUT DI SETIAP HURUF) !!!
 task.spawn(function()
     local counter = 0
     while task.wait(0.01) do
-        counter = counter + 0.05 -- KECEPATAN NGEBUT
+        counter = counter + 0.05 -- Speed warna ngebut
         
-        -- Warna Gradasi persis kayak di Video Litmatch lo
-        local color = Color3.fromHSV((counter % 1), 0.8, 1) 
-        -- Hue Shift khusus di area Pink ke Biru (0.7 ke 0.9)
-        local pinkToBlue = Color3.fromHSV(0.7 + (math.sin(counter) * 0.2), 0.8, 1)
+        -- Warna Gradasi Video: Pink (Hue ~0.85) ke Ungu/Biru (Hue ~0.65)
+        local vidColor = Color3.fromHSV(0.65 + (math.sin(counter) * 0.15), 0.7, 1)
 
         for _, v in pairs(game.CoreGui:GetDescendants()) do
             if v:IsA("TextLabel") or v:IsA("TextButton") or v:IsA("TextBox") then
-                v.TextColor3 = pinkToBlue
+                v.TextColor3 = vidColor
             elseif v:IsA("UIStroke") then
-                v.Color = pinkToBlue
+                v.Color = vidColor
             end
         end
     end
 end)
 
 -- // SETTINGAN OWNER & KEY
-local MyUsername = "tolongggggs"
+local MyUsername = "tolongggggs" -- Username lo udah masuk sini
 local CorrectKey = "XREX"
 
 local UseKey = true
@@ -32,14 +30,14 @@ end
 
 local Window = Rayfield:CreateWindow({
    Name = "XREXZOB VIP",
-   LoadingTitle = "VIP PRIVATE ACCESS",
+   LoadingTitle = "VIP ACCESS: " .. MyUsername,
    LoadingSubtitle = "VIDEO THEME ENABLED",
    ConfigurationSaving = { Enabled = false },
    KeySystem = UseKey,
    KeySettings = {
       Title = "XREXZOB VIP | PRIVATE",
       Subtitle = "Key: XREX",
-      Note = "Owner bypass aktif!",
+      Note = "Owner bypass aktif buat " .. MyUsername,
       FileName = "XREXKey",
       SaveKey = true,
       GrabKeyFromSite = false,
@@ -47,7 +45,7 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
--- // TAB MOVEMENT
+-- // TAB MOVEMENT (FITUR LENGKAP)
 local TabMove = Window:CreateTab("Movement", 4483362458)
 _G.WSValue = 16
 
@@ -79,13 +77,13 @@ TabMove:CreateToggle({
    end,
 })
 
--- // TAB PLAYER TOOLS
+-- // TAB PLAYER TOOLS (TP & NEMPEL - SESUAI REQUEST)
 local TabPlayer = Window:CreateTab("Player Tools", 4483362458)
 local TargetName = ""
 
 TabPlayer:CreateInput({
    Name = "Target Name",
-   PlaceholderText = "Ketik USN...",
+   PlaceholderText = "Ketik usn target...",
    Callback = function(Text) TargetName = Text end,
 })
 
@@ -101,7 +99,7 @@ TabPlayer:CreateButton({
 })
 
 TabPlayer:CreateButton({
-   Name = "Nempel (Carry)",
+   Name = "Nempel (Carry Position)",
    Callback = function()
       _G.Nempel = true
       for _, p in pairs(game.Players:GetPlayers()) do
@@ -120,11 +118,11 @@ TabPlayer:CreateButton({
 })
 
 TabPlayer:CreateButton({
-   Name = "Lepas",
+   Name = "Lepas Nempel",
    Callback = function() _G.Nempel = false end,
 })
 
--- // TAB EMOTES
+-- // TAB EMOTES (HYPE & OLD SCHOOL)
 local TabEmote = Window:CreateTab("Emotes", 4483362458)
 _G.EMSpeed = 1
 _G.Track = nil
@@ -155,4 +153,4 @@ end
 
 TabEmote:CreateButton({ Name = "Hype Dance", Callback = function() PlayEm("3695333486") end })
 TabEmote:CreateButton({ Name = "Old School", Callback = function() PlayEm("3333499508") end })
-TabEmote:CreateButton({ Name = "Stop", Callback = function() if _G.Track then _G.Track:Stop() _G.Track:Destroy() _G.Track = nil end end })
+TabEmote:CreateButton({ Name = "Stop Emote", Callback = function() if _G.Track then _G.Track:Stop() _G.Track:Destroy() _G.Track = nil end end })
