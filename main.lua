@@ -1,24 +1,28 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
--- // !!! MESIN PELANGI NGEBUT KHUSUS TEKS (VIP RGB) !!!
+-- // !!! MESIN PELANGI NGEBUT WARNA VIDEO (PINK-PURPLE-BLUE) !!!
 task.spawn(function()
     local counter = 0
-    while task.wait(0.01) do -- Speed pelangi ngebut
-        counter = counter + 0.02
-        local color = Color3.fromHSV(counter % 1, 1, 1)
+    while task.wait(0.01) do
+        counter = counter + 0.05 -- KECEPATAN NGEBUT
         
+        -- Warna Gradasi persis kayak di Video Litmatch lo
+        local color = Color3.fromHSV((counter % 1), 0.8, 1) 
+        -- Hue Shift khusus di area Pink ke Biru (0.7 ke 0.9)
+        local pinkToBlue = Color3.fromHSV(0.7 + (math.sin(counter) * 0.2), 0.8, 1)
+
         for _, v in pairs(game.CoreGui:GetDescendants()) do
             if v:IsA("TextLabel") or v:IsA("TextButton") or v:IsA("TextBox") then
-                v.TextColor3 = color
+                v.TextColor3 = pinkToBlue
             elseif v:IsA("UIStroke") then
-                v.Color = color
+                v.Color = pinkToBlue
             end
         end
     end
 end)
 
 -- // SETTINGAN OWNER & KEY
-local MyUsername = "tolongggggs" -- AKUN RAJA
+local MyUsername = "tolongggggs"
 local CorrectKey = "XREX"
 
 local UseKey = true
@@ -28,14 +32,14 @@ end
 
 local Window = Rayfield:CreateWindow({
    Name = "XREXZOB VIP",
-   LoadingTitle = "VIP ACCESS: " .. MyUsername,
-   LoadingSubtitle = "RGB NEON MODE ENABLED",
+   LoadingTitle = "VIP PRIVATE ACCESS",
+   LoadingSubtitle = "VIDEO THEME ENABLED",
    ConfigurationSaving = { Enabled = false },
    KeySystem = UseKey,
    KeySettings = {
       Title = "XREXZOB VIP | PRIVATE",
       Subtitle = "Key: XREX",
-      Note = "Owner bypass aktif buat " .. MyUsername,
+      Note = "Owner bypass aktif!",
       FileName = "XREXKey",
       SaveKey = true,
       GrabKeyFromSite = false,
@@ -75,13 +79,13 @@ TabMove:CreateToggle({
    end,
 })
 
--- // TAB PLAYER TOOLS (TP & NEMPEL)
+-- // TAB PLAYER TOOLS
 local TabPlayer = Window:CreateTab("Player Tools", 4483362458)
 local TargetName = ""
 
 TabPlayer:CreateInput({
    Name = "Target Name",
-   PlaceholderText = "Ketik USN Target...",
+   PlaceholderText = "Ketik USN...",
    Callback = function(Text) TargetName = Text end,
 })
 
