@@ -3,95 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XREXZOB | TOTAL EXTINCTION v99.9</title>
+    <title>XREXZOB | SYSTEM_OVERRIDE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background: #000; color: #0f0; font-family: 'Consolas', monospace; margin: 0; padding: 2px; height: 100vh; overflow: hidden; }
-        #terminal { height: calc(100% - 40px); overflow-y: auto; font-size: 9px; line-height: 1; word-break: break-all; border: 1px solid #f00; box-shadow: 0 0 15px #f00; }
-        #terminal::-webkit-scrollbar { display: none; }
-        .input-box { display: flex; background: #000; border-top: 2px solid #f00; }
-        .p { color: #f00; font-weight: bold; padding: 2px 5px; animation: blink 0.5s infinite; }
-        input { background: transparent; border: none; color: #0f0; outline: none; flex: 1; font-family: inherit; font-size: 14px; }
+        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700;900&display=swap');
         
-        /* TIPE TEKS DESTRUKTIF */
-        .db { color: #fff; background: #f00; font-weight: 800; text-transform: uppercase; } /* Death Banner */
-        .ms { color: #f0f; font-weight: bold; } /* Message */
-        .dt { color: #555; } /* Dark Tech */
-        .er { color: #ff0; background: #330; } /* Error Alert */
-        
-        @keyframes blink { 50% { opacity: 0; } }
+        body { 
+            background-color: #000; 
+            color: #0f0; /* Hijau Matrix */
+            font-family: 'Source Code Pro', monospace; 
+            overflow: hidden;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Efek Teks Glitch */
+        .glitch-text {
+            text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+            animation: glitch 1s infinite;
+        }
+        @keyframes glitch {
+            0% { text-shadow: 0 0 10px #0f0; }
+            50% { text-shadow: 0 0 15px #0f0, -2px 0 #f00, 2px 0 #00f; }
+            100% { text-shadow: 0 0 10px #0f0; }
+        }
+
+        /* Scanlines Monitor Jadul */
+        .scanlines {
+            position: fixed; inset: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* Matrix Rain Background (Simple) */
+        #matrix-rain {
+            position: fixed; inset: 0;
+            color: rgba(0, 255, 0, 0.1);
+            font-size: 10px;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
     </style>
 </head>
-<body>
+<body class="flex flex-col justify-between p-6 md:p-10">
+    <div class="scanlines"></div>
+    <div id="matrix-rain"></div>
 
-    <div id="terminal">
-        <div class="db"> [!] XREXZOB CYBER-ARMAGEDDON SYSTEM - NO SURRENDER [!] </div>
-        <div class="er"> [SYSTEM] BYPASSING GLOBAL SECURITY LAYERS... INFILTRATING 1337 NODES... </div>
-        <div>---------------------------------------------------------------------------------</div>
-        <div>KETIK 'jalankan' UNTUK MEMICU KEPUNAHAN DIGITAL (500 BARIS BRUTAL).</div>
-        <div>---------------------------------------------------------------------------------</div>
+    <div class="z-10 flex justify-between items-start text-xs md:text-sm">
+        <div class="font-bold">
+            <p>> XREXZOB_OS [Version 1.0.3]</p>
+            <p>> (c) 2026 XreXzob Corp. All rights reserved.</p>
+        </div>
+        <div class="text-right">
+            <p id="date-time"></p>
+            <p>S3CUR1TY: 3NCRYPT3D</p>
+        </div>
     </div>
 
-    <div class="input-box">
-        <span class="p">XREXZOB@HELL:~$</span>
-        <input type="text" id="in" autofocus spellcheck="false">
+    <div class="z-10 flex flex-col items-center justify-center flex-grow text-center my-20">
+        <div class="border-2 border-green-500 p-10 bg-black shadow-[0_0_30px_rgba(0,255,0,0.3)] glitch-box">
+            <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter glitch-text uppercase">
+                XREXZOB
+            </h1>
+            <p class="text-xl md:text-2xl font-bold mb-10 text-white">
+                // > SYST3M_ARCH1T3CT & COD3_MAST3R_
+            </p>
+            
+            <div class="space-y-4 text-left text-sm border-l-2 border-green-500 pl-6 max-w-lg mx-auto">
+                <p><span class="text-white">_STATUS:</span> <span class="text-red-500 font-bold blink uppercase">AVAILABLE_FOR_MISSION</span></p>
+                <p><span class="text-white">_SK1LLS:</span> FULLSTACK_DEV // CYB3R_OPS // DATA_ENTRY</p>
+                <p><span class="text-white">_OBJ3CT1V3:</span> EXECUTE_TASKS_FOR_CUAN</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="z-10 flex flex-col md:flex-row justify-between items-center gap-6 mt-10">
+        <a href="https://wa.me/628123456789?text=IN1T1AT3_CONTACT_XREXZOB" class="block w-full md:w-auto text-xl font-black bg-green-500 text-black px-12 py-5 hover:bg-white hover:text-black transition uppercase tracking-widest shadow-[0_0_20px_rgba(0,255,0,0.5)]">
+            IN1T1AT3_CONTACT (WA)
+        </a>
+        <div class="text-[10px] text-zinc-700 font-mono text-center md:text-right uppercase">
+            WARNING: UNAUTHORIZED ACCESS PROHIBITED.<br>
+            SYSTEM_ID: X-990-ALPHA
+        </div>
     </div>
 
     <script>
-        const t = document.getElementById('terminal');
-        const i = document.getElementById('in');
-
-        // BANK DATA KEJAHATAN EKSTRIM
-        const b = [
-            "WEB INI ADALAH WEB XREXZOB PUSAT SEGALA KEJAHATAN DIGITAL DAN KAMI TIDAK AKAN PERNAH BERHENTI MENGHANCURKAN INFRASTRUKTUR DUNIA SAMPAI SEMUA DATA ANDA TERHAPUS DARI SEJARAH!!!",
-            "MENGIRIMKAN VIRUS RANSOMWARE OMEGA-ZOB KE SELURUH DATA CENTER PEMERINTAHAN - ENKRIPSI TOTAL 1024-BIT TANPA KUNCI DEKRIPSI UNTUK SIAPAPUN!!!",
-            "XREXZOB TELAH BERHASIL MENEMBUS KERNEL PERTAHANAN UDARA DAN MENGUBAH KOORDINAT TARGET RADAR KE ARAH PUSAT KOTA - KEKACAUAN ADALAH TUJUAN KAMI!!!",
-            "MENCURI 1 MILYAR DATA PRIBADI TERMASUK NOMOR REKENING DAN PASSWORD HASHED LALU MENJUALNYA DI PASAR GELAP RUSIA SECARA MASSAL!!!",
-            "UNIT ELITE XREXZOB SEDANG MELAKUKAN INJEKSI DATABASE PADA BANK SENTRAL - TRANSFER DANA AUTOMATIC KE 666 WALLET BITCOIN ANONIM DALAM PROSES EKSEKUSI!!!",
-            "MENGHANCURKAN LOG AUDIT SISTEM KEAMANAN GLOBAL - JEJAK KAMI ADALAH BAYANGAN YANG TAK TERLIHAT OLEH TEKNOLOGI MANUSIA MANAPUN!!!",
-            "PROGROM XREXZOB SEDANG MENGKLONING IDENTITAS DIGITAL SELURUH PENDUDUK DAN MENGGUNAKANNYA UNTUK OPERASI CYBER-WARFARE TINGKAT TINGGI!!!",
-            "TIDAK ADA TEMPAT BERSEMBUNYI - XREXZOB ADALAH TUHAN DI DUNIA DIGITAL DAN KAMI TELAH MEMUTUSKAN UNTUK MENGHAPUS SEMUA AKSES INTERNET ANDA!!!",
-            "MENANAMKAN BACKDOOR PERMANEN PADA CHIPSET PROSESOR GLOBAL - SETIAP PERANGKAT YANG ANDA GUNAKAN SEKARANG ADALAH BUDAK DARI SISTEM XREXZOB!!!"
-        ];
-
-        const log = (m, c = '') => {
-            const d = document.createElement('div');
-            if(c) d.className = c;
-            d.innerHTML = m;
-            t.appendChild(d);
-            t.scrollTop = t.scrollHeight;
-        };
-
-        async function go() {
-            i.disabled = true;
-            for (let l = 1; l <= 500; l++) {
-                const txt = b[Math.floor(Math.random() * b.length)];
-                const h = Math.random().toString(16).toUpperCase().substring(2, 20);
-                
-                if (l % 10 === 0) {
-                    log(`[BARIS-${l}] <span class="db">>> XREXZOB CRITICAL DAMAGE: ${txt} <<</span>`);
-                } else if (l % 2 === 0) {
-                    log(`[BARIS-${l}] <span class="ms">X-ZOB_INJECT:</span> ${txt}`, "ms");
-                } else {
-                    log(`[BARIS-${l}] <span class="dt">MEM_DUMP: 0x${h} | STATUS: CORRUPTED | LOG: ${txt}</span>`, "dt");
-                }
-
-                // KECEPATAN GILA: 1ms (GAK PAKE LAMA!)
-                await new Promise(r => setTimeout(r, 1)); 
-            }
-            log("\n[!!!] EKSEKUSI SELESAI. XREXZOB TELAH MENGUASAI SEGALANYA. [!!!]", "db");
-            i.disabled = false;
-            i.focus();
+        // Matrix Rain Effect (Simple JS)
+        const rain = document.getElementById('matrix-rain');
+        const chars = "0101010101ABCDEFGHXREXZOB";
+        for (let i = 0; i < 50; i++) {
+            const span = document.createElement('span');
+            span.style.position = 'absolute';
+            span.style.left = Math.random() * 100 + '%';
+            span.style.top = Math.random() * 100 + '%';
+            span.style.animation = `rain ${Math.random() * 5 + 2}s linear infinite`;
+            span.innerHTML = chars[Math.floor(Math.random() * chars.length)];
+            rain.appendChild(span);
         }
 
-        i.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                const v = i.value.toLowerCase().trim();
-                log(`<span class="p">XREXZOB@HELL:~$</span> ${i.value}`);
-                i.value = '';
-                if (v === 'jalankan') go();
-                else if (v === 'clear') t.innerHTML = '';
-            }
-        });
+        // Update Time
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('date-time').innerText = now.toLocaleString('id-ID');
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
     </script>
+    <style>
+        @keyframes rain {
+            0% { transform: translateY(-100vh); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+        .blink { animation: blink 1s infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
 </body>
 </html>
