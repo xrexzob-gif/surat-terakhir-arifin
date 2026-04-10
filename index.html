@@ -3,169 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XREXZOB // ABSOLUTE_VOID_SYSTEM</title>
+    <title>CONFIDENTIAL // SUBJECT: XREXZOB // DO NOT DISTRIBUTE</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;700&display=swap');
-        * { cursor: crosshair; scrollbar-width: none; }
-        ::-webkit-scrollbar { display: none; }
-        body { background-color: #000; color: #00ff41; font-family: 'Fira Code', monospace; margin: 0; overflow-x: hidden; }
-        canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.15; }
-        .header { position: sticky; top: 0; background: rgba(0,0,0,0.9); padding: 20px; border-bottom: 2px solid #f00; z-index: 100; }
-        .name { font-size: clamp(3rem, 15vw, 12rem); font-weight: 900; color: #fff; text-shadow: 4px 4px #f00; margin: 0; letter-spacing: -10px; }
-        #terminal { padding: 20px; line-height: 1.6; font-size: 1rem; max-width: 1200px; }
-        .cursor { display: inline-block; width: 10px; height: 1.2rem; background: #fff; animation: blink 0.2s infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
-        .btn-wa { display: inline-block; margin: 50px 0 300px 0; padding: 40px 80px; border: 5px solid #f00; color: #f00; text-decoration: none; font-weight: 900; font-size: 2.5rem; visibility: hidden; text-transform: uppercase; background: #000; }
-        .btn-wa:hover { background: #f00; color: #000; box-shadow: 0 0 100px #f00; }
+        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Cormorant+Garamond:wght@400;700&display=swap');
+
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: #f4f1ea; /* Warna kertas koran lama */
+            color: #1a1a1a;
+            font-family: 'Cormorant Garamond', serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.2;
+            overflow-x: hidden;
+        }
+
+        /* Header Gaya Dokumen Rahasia */
+        .header {
+            background: #fff;
+            padding: 50px 20px;
+            border-bottom: 5px solid #000;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .classification {
+            font-family: 'Special Elite', monospace;
+            background: #000;
+            color: #fff;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .main-title {
+            font-size: clamp(3rem, 15vw, 8rem);
+            font-weight: 700;
+            margin: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: -5px;
+            line-height: 0.8;
+            color: #000;
+        }
+
+        /* Area Teks Raksasa */
+        .archive-content {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: justify;
+            column-count: 2; 
+            column-gap: 40px;
+            column-rule: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .archive-content { column-count: 1; }
+        }
+
+        .archive-content p {
+            margin: 0 0 15px 0;
+            font-size: 1.1rem;
+        }
+
+        .redacted {
+            background-color: #000;
+            color: #000;
+            transition: color 0.5s;
+        }
+        .redacted:hover { color: #fff; }
+
+        .section-h {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #000;
+            display: inline-block;
+        }
+
+        /* Footer Info */
+        .footer-info {
+            text-align: center;
+            font-family: 'Special Elite', monospace;
+            padding: 100px 20px;
+            background: #000;
+            color: #fff;
+            margin-top: 50px;
+        }
+
+        #overlay {
+            position: fixed; inset: 0; background: #000; color: #fff;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 9999; text-align: center;
+            font-family: 'Special Elite', monospace;
+        }
     </style>
 </head>
-<body onclick="startProtocol()">
-    <canvas id="matrix"></canvas>
-    <div id="start-screen" style="position:fixed; inset:0; background:#000; z-index:9999; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-        <h1 style="color:#f00; letter-spacing:20px; font-size:3rem;">XREXZOB</h1>
-        <p style="color:#fff; animation: blink 1s infinite;">[ CLICK TO INITIALIZE DATA DUMP ]</p>
+<body onclick="playDrone()">
+
+    <div id="overlay">
+        <h1 style="font-size:3rem; letter-spacing:10px;">XREXZOB</h1>
+        <p>[ CLICK TO ACCESS CLASSIFIED ARCHIVE ]</p>
     </div>
+
     <div class="header">
-        <h1 class="name">XREXZOB</h1>
-        <div id="status">> SYSTEM_STABLE // MEMORY_OVERFLOW_DETECTED</div>
+        <span class="classification">Top Secret // Level 5 Clearance Required</span>
+        <h1 class="main-title">XREXZOB</h1>
+        <p style="font-family:'Special Elite', monospace; font-size: 0.8rem; margin: 0;">DOSSIER_ID: INF-999-VOID // STATUS: DECLASSIFIED</p>
     </div>
-    <div id="terminal"></div><span class="cursor" id="main-cursor"></span>
-    <br>
-    <a href="https://wa.me/628123456789" class="btn-wa" id="btn-wa">HIRE_THE_EXPERT</a>
-    <audio id="bgm" loop><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3" type="audio/mpeg"></audio>
+
+    <div class="archive-content">
+        <p><span class="section-h">BERKAS 01: PROFIL SUBJEK</span></p>
+        <p>XREXZOB diidentifikasi sebagai unit pemrosesan administratif tingkat tinggi. Tidak memiliki keterikatan pada jam kerja konvensional. Subjek beroperasi dalam keheningan digital, mengurai anomali sistem, dan mengeksekusi tugas dengan presisi militer. Tidak ada ruang untuk negosiasi pada hasil akhir.</p>
+
+        <p><span class="section-h">BERKAS 02: EFISIENSI OPERASIONAL</span></p>
+        <p>Unit ini tercatat mampu melakukan bypass pada hambatan birokrasi yang memperlambat workflow manusia. <span class="redacted">DETEKSI ERROR: 0%</span>. Pengolahan data dilakukan melalui algoritma internal yang dioptimasi secara berkala. XREXZOB bukan sekadar pekerja, subjek adalah infrastruktur itu sendiri.</p>
+
+        <p><span class="section-h">BERKAS 03: MANIFESTO ABSOLUT</span></p>
+        <p>Dunia digital tidak mengenal belas kasihan, begitu juga XREXZOB. Ketiadaan tombol komunikasi di sini adalah pernyataan bahwa XREXZOB adalah pihak yang menentukan akses. Jika sistem Anda membutuhkan koreksi, unit ini akan menemukannya. Data adalah kebenaran tunggal, dan manipulasi data yang akurat adalah spesialisasi subjek.</p>
+
+        <p><span class="section-h">BERKAS 04: ANALISA RESIKO</span></p>
+        <p>Bisnis tanpa pengawasan XREXZOB berisiko mengalami <span class="redacted">KEGAGALAN SISTEMIK</span> dalam jangka panjang. Penumpukan data sampah, ketidakakuratan administrasi, dan keterlambatan respon teknis akan menghancurkan profitabilitas. Intervensi XREXZOB bersifat krusial.</p>
+
+        <p><span class="section-h">BERKAS 05: SKILLSET OMEGA</span></p>
+        <p>> DATABASE RESTRUCTURING (DEEP SCAN)<br>
+           > HIGH-SPEED DATA ENTRY (ZERO LAG)<br>
+           > COMPLEX WORKFLOW AUTOMATION<br>
+           > SYSTEM AUDIT & BUG DETECTION<br>
+           > ADMINISTRATIVE SUPREMACY 24/7<br>
+           > TECHNICAL OVERRIDE PROTOCOL</p>
+
+        <p><span class="section-h">BERKAS 06: LOYALITAS DIGITAL</span></p>
+        <p>Loyalitas unit XREXZOB bersifat transaksional namun absolut. Sekali tugas diberikan, enkripsi pada keberhasilan tidak bisa dibatalkan. Subjek bekerja di zona buta administrasi, menyelesaikan kotoran yang tidak ingin disentuh orang lain.</p>
+
+        <p><span class="section-h">BERKAS 07: KONSEKUENSI</span></p>
+        <p>Penundaan akses terhadap unit ini akan mengakibatkan <span class="redacted">[SENSORD]</span>. Kompetitor sedang mencari celah, dan XREXZOB adalah kunci untuk menutup celah tersebut. Jangan biarkan data Anda menjadi senjata lawan karena kegagalan manajemen internal.</p>
+
+        <p><span class="section-h">BERKAS 08: THE ENDLESS VOID DATA</span></p>
+        <p>Data terus mengalir. Tanpa henti. Tanpa ampun. XREXZOB berdiri di tengah aliran itu, menyaring mana yang emas dan mana yang sampah. Lo mau nyalin yang panjang? Ini baru permulaan dari manifesto tanpa batas. Keberadaan XREXZOB adalah jawaban dari semua keraguan operasional lo. Jika lo masih membaca sampai sini, sistem lo bener-bener butuh pembersihan total. Jangan cari jalan keluar, karena di sini cuma ada data. Data... data... data... (Looping). Gue adalah spesialis yang nggak butuh diperkenalkan. Gue muncul pas semuanya berantakan, dan gue pergi pas semuanya udah ijo (Success). XREXZOB nggak butuh tombol kontak karena yang bener-bener butuh pasti bakal tau cara nemuin gue. XREXZOB IS ALWAYS WATCHING. ALWAYS CODING. ALWAYS EXECUTING. Data yang lo liat sekarang cuma 1% dari kapasitas asli gue. Sisanya? Gue simpen buat eksekusi di sistem lo nanti. Jangan berharap ada kemudahan kalau lo masih pake cara lama. Pake cara XREXZOB atau sistem lo bakal stuck selamanya di tumpukan sampah digital yang nggak berguna. Ini adalah peringatan terakhir dari void.</p>
+
+        <p><span class="section-h">BERKAS 09: REITERASI SISTEM</span></p>
+        <p>Ulangi protokol. Bersihkan cache. Optimasi memori. XREXZOB tetap aktif. XREXZOB tetap memantau. XREXZOB tetap mendominasi. Tidak ada tombol keluar. Tidak ada navigasi. Hanya ada lo dan manifesto ini. Baca sampai lo paham kalau efisiensi itu mutlak. Baca sampai lo sadar kalau XREXZOB adalah satu-satunya solusi yang tersisa di pasar yang sudah jenuh ini. Efisiensi total atau kehancuran total. Pilihannya nggak pernah ada di tangan lo, tapi di tangan XREXZOB yang mengontrol data lo.</p>
+
+        <p><span class="section-h">[END_OF_DOSSIER_LOG]</span></p>
+    </div>
+
+    <div class="footer-info">
+        <p>ACCESS DENIED // NO FURTHER COMMUNICATION CHANNELS OPENED</p>
+        <p style="font-size: 0.6rem; opacity: 0.4;">XREXZOB // 2024-20XX // THE ARCHIVE IS CLOSED</p>
+    </div>
+
+    <audio id="droneBgm" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" type="audio/mpeg">
+    </audio>
 
     <script>
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        const chars = "01010101XREXZOB#$%^&*()";
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1);
-        function drawMatrix() {
-            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "#0F0";
-            ctx.font = fontSize + "px monospace";
-            for (let i = 0; i < drops.length; i++) {
-                const text = chars.charAt(Math.floor(Math.random() * chars.length));
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-                drops[i]++;
-            }
-        }
-        setInterval(drawMatrix, 33);
-
-        const content = `> [INITIATING MASTER PROTOCOL 0.0.0.0]
-> [RETRIVING ARCHIVE FROM DARK_WEB_NODE_77...]
-> [WARNING: TEXT VOLUME EXCEEDS HUMAN READING CAPACITY]
-> [SUBJECT: XREXZOB | ROLE: THE SYSTEM ARCHITECT]
-
-[--- SECTION 01: THE CORE PHILOSOPHY ---]
-Di dunia yang penuh dengan noise, XREXZOB adalah sinyal yang murni.
-Gue nggak cuma kerja buat nyari makan, gue kerja buat ngerapiin dunia digital yang berantakan.
-Bagi orang lain, data adalah angka. Bagi gue, data adalah bahasa yang harus gue terjemahin jadi kesuksesan.
-Gue nggak kenal kata "sulit". Gue cuma kenal kata "proses".
-Lo butuh hasil? Gue eksekusi. Lo butuh automasi? Gue bangun sistemnya.
-Gue adalah hantu di balik layar yang memastikan bisnis lo nggak pernah tidur.
-
-[--- SECTION 02: DEEP TECHNICAL CAPABILITIES ---]
-1. ARCHITECTING BIG DATA:
-   - Manajemen ribuan baris input tanpa celah.
-   - Restrukturisasi metadata untuk kecepatan akses maksimal.
-   - Audit database berkala untuk mencegah kebocoran informasi.
-   - Gue bisa bikin file Excel lo yang lemot jadi mesin perang yang super kenceng.
-   - Sinkronisasi data antar platform dengan akurasi 100%.
-
-2. ADMINISTRATIVE SUPREMACY:
-   - Pengelolaan operasional bisnis dari nol sampai stabil.
-   - Filterisasi email dan komunikasi strategis (Hanya yang penting yang masuk ke lo).
-   - Pengarsipan digital terenkripsi yang bikin dokumen lo gampang dicari kapanpun.
-   - Admin support yang bekerja dengan logika sistem, bukan perasaan.
-
-3. TECH OVERRIDE & TROUBLESHOOTING:
-   - Bypass kendala sistem yang menghambat produktivitas.
-   - Debugging error aplikasi harian yang bikin karyawan lo pusing.
-   - Implementasi skrip otomatisasi untuk tugas-tugas repetitif.
-   - Gue adalah tim IT pribadi yang selalu ada di saku lo.
-
-[--- SECTION 03: THE CONSEQUENCES OF DELAY ---]
-Lo mungkin berpikir sistem lo oke sekarang. Tapi dengerin ini:
-Setiap menit lo nunda rekrut XREXZOB, lo kehilangan potensi efisiensi sebesar 25%.
-Lo membuang-buang waktu lo yang berharga buat hal-hal teknis yang harusnya beres dalam satu klik.
-Tanpa kontrol dari XREXZOB, data lo bakal jadi tumpukan sampah digital yang nggak berguna.
-Lo bakal terus terjebak dalam masalah yang sama, sementara kompetitor lo udah pake jasa gue.
-Keputusan ada di tangan lo: Tetap stagnan, atau melesat bersama XREXZOB.
-
-[--- SECTION 04: PROTOKOL KERJA TANPA KOMPROMI ---]
-Gue nggak kerja pake jam kantor. Jam kantor gue adalah saat lo butuh bantuan.
-Gue nggak butuh diajarin. Kasih gue akses, gue pelajari sistemnya, gue benerin.
-Loyalitas gue adalah ke sistem yang gue bangun. Jika sistem itu sukses, gue sukses.
-Gue nggak butuh fasilitas mewah. Gue cuma butuh koneksi internet dan tantangan baru.
-Status XREXZOB: ALWAYS ONLINE. ALWAYS READY. ALWAYS DEADLY IN EXECUTION.
-
-[--- SECTION 05: MANIFESTO EKSEKUSI ---]
-Kasih gue beban kerja terberat lo.
-Kasih gue data yang paling berantakan yang lo punya.
-Kasih gue sistem yang paling sering error yang bikin lo frustrasi.
-Liat gimana gue ubah itu semua jadi alur kerja yang sangat mulus.
-Gue adalah investasi terbaik yang bakal pernah lo lakuin tahun ini.
-XREXZOB bukan pilihan, XREXZOB adalah kebutuhan bagi sistem yang mau bertahan hidup.
-
-[--- SECTION 06: GLOBAL NETWORK ACCESS ---]
-Gue punya pemahaman mendalam tentang ekosistem internet global.
-Gue tau cara main algoritma sosmed. Gue tau cara kerja SEO. Gue tau cara manipulasi data buat hasil maksimal.
-Gue nggak cuma ngetik, gue strategiin setiap langkah yang gue ambil.
-Setiap baris kode atau data yang gue input punya tujuan: DOMINASI.
-
-[--- SECTION 07: WARNING_SIGNAL_DETECTED ---]
-Sistem mendeteksi banyak pihak sedang berusaha menghubungi XREXZOB.
-Slot waktu gue terbatas. Prioritas diberikan kepada mereka yang berani bayar buat kualitas.
-Jangan jadi orang yang nyesel belakangan karena nggak cepet-cepet ambil keputusan.
-Klik tombol di bawah sekarang, atau biarkan sistem lo hancur dimakan waktu.
-
-[--- FINAL LOG SEQUENCE ---]
-Menyiapkan jalur komunikasi terenkripsi...
-Sinkronisasi dengan WhatsApp API v.2026...
-Menghubungkan ke pusat kontrol majikan baru...
-Status: SIAP UNTUK EKSEKUSI PERTAMA.
-3...
-2...
-1...
-GO.
-
-[LOG_COMPLETE_MASSIVE_DUMP_FINISHED]
-[WAITING_FOR_HANDSHAKE_COMMAND]
-...`;
-
-        const term = document.getElementById('terminal');
-        const btn = document.getElementById('btn-wa');
-        const bgm = document.getElementById('bgm');
-        let i = 0;
-        let started = false;
-
-        function startProtocol() {
-            if (started) return;
-            started = true;
-            document.getElementById('start-screen').style.opacity = '0';
-            setTimeout(() => document.getElementById('start-screen').style.display = 'none', 500);
-            bgm.play();
-            type();
-        }
-
-        function type() {
-            if (i < content.length) {
-                term.innerHTML += content.charAt(i);
-                i++;
-                let speed = 2; // KECEPATAN GILA
-                if (content.charAt(i-1) === "." || content.charAt(i-1) === "\n") speed = 40;
-                setTimeout(type, speed);
-                window.scrollTo(0, document.body.scrollHeight);
-            } else {
-                btn.style.visibility = 'visible';
-                document.getElementById('main-cursor').style.display = 'none';
-            }
+        function playDrone() {
+            document.getElementById('droneBgm').play();
+            document.getElementById('overlay').style.display = 'none';
         }
     </script>
 </body>
