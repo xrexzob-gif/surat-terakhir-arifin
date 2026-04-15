@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pesan Tulus Arifin</title>
+    <title>Surat Terakhir Arifin</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Quicksand:wght@300;500&family=Tangerine:wght@700&display=swap');
 
         body {
             background-color: #050505;
-            color: #c0c0c0;
+            color: #d1d1d1;
             font-family: 'Quicksand', sans-serif;
             display: flex;
             justify-content: center;
@@ -23,7 +23,37 @@
         .container {
             width: 100%;
             max-width: 850px;
-            padding: 40px 20px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 15px;
+        }
+
+        .nav-buttons {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: transparent;
+            border: 1px solid #333;
+            color: #888;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            transition: 0.5s;
+            text-transform: uppercase;
+        }
+
+        button:hover, button.active {
+            border-color: #fff;
+            color: #fff;
+            background: rgba(255,255,255,0.05);
         }
 
         #text-container {
@@ -33,14 +63,7 @@
             min-height: 500px;
             white-space: pre-wrap;
             font-style: italic;
-        }
-
-        .section-divider {
-            margin: 50px 0;
-            border: 0;
-            border-top: 1px solid #333;
-            opacity: 0;
-            transition: opacity 2s;
+            text-align: left;
         }
 
         .signature {
@@ -49,57 +72,44 @@
             font-size: 3.5rem;
             color: #fff;
             opacity: 0;
-            transition: opacity 4s ease-in;
+            transition: opacity 3s;
         }
 
         .timestamp {
-            margin-top: 60px;
-            font-size: 0.8rem;
+            margin-top: 20px;
+            font-size: 0.75rem;
             color: #444;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             opacity: 0;
-            transition: opacity 3s ease-in;
+            transition: opacity 2s;
         }
-
-        #play-btn {
-            padding: 15px 40px;
-            background: transparent;
-            border: 1px solid #444;
-            color: #888;
-            cursor: pointer;
-            font-size: 0.9rem;
-            letter-spacing: 4px;
-            transition: 0.8s;
-        }
-
-        #play-btn:hover {
-            border-color: #fff;
-            color: #fff;
-        }
-
-        .hidden { display: none; }
 
         #cursor {
             display: inline-block;
             width: 1.5px;
-            height: 1.2rem;
+            height: 1.1rem;
             background-color: #fff;
             animation: blink 0.8s infinite;
         }
 
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        @keyframes blink { 50% { opacity: 0; } }
+        .hidden { display: none; }
+        #start-btn { font-size: 1rem; padding: 20px 40px; }
     </style>
 </head>
 <body>
 
     <div id="start-screen">
-        <button id="play-btn" onclick="startApp()">BUKA SURAT DARI ARIFIN</button>
+        <button id="start-btn" onclick="startApp()">BUKA SURAT DARI ARIFIN</button>
     </div>
 
     <div class="container hidden" id="main-content">
+        <div class="nav-buttons" id="nav-btns">
+            <button id="btn1" onclick="switchTab(1)">Pesan Buat Kamu Sayang</button>
+            <button id="btn2" onclick="switchTab(2)">Pesan Buat Bapak & Keluarga</button>
+        </div>
+
         <div id="text-container"><span id="typed-text"></span><span id="cursor"></span></div>
-        <hr class="section-divider" id="divider">
+        
         <div class="signature" id="signature">Muhammad Arifin</div>
         <div class="timestamp" id="timestamp"></div>
     </div>
@@ -109,53 +119,59 @@
     </audio>
 
     <script>
-        const messageForHer = "Sayang, mungkin saat pesan ini muncul di hadapanmu, aku sudah tidak lagi bisa mendengar suaramu atau menggenggam tanganmu...\n\nMenulis ini rasanya berat, tapi aku ingin kamu tahu betapa berartinya kehadiranmu bagiku. Seandainya takdir memaksaku untuk pergi lebih dulu—entah karena sakit yang selama ini aku tahan, atau karena alasan lain yang menjadi rahasia Tuhan—aku ingin kamu tetap tegar menghadapi dunia.\n\nTolong, jaga dirimu baik-baik ya? Makanlah dengan teratur, istirahatlah yang cukup, dan jangan biarkan kesedihan menyelimuti harimu terlalu lama. Aku tahu mungkin akan sulit, tapi aku ingin melihatmu terus berjalan. \n\nKalau suatu hari nanti kamu merasa sangat rindu, kalau beban hidup terasa terlalu berat, atau jika kamu sekadar ingin bercerita tentang harimu... janganlah kamu merasa sendirian. Datanglah kepada Allah, bersujudlah dalam sholatmu. Ceritakan semuanya di sana. Aku selalu berharap, melalui perantara doa dan sujudmu, aku bisa tetap merasakan kehadiranmu dan mendengar setiap keluh kesahmu dari tempatku yang baru.\n\nAku ingin kamu menjadi sosok yang luar biasa. Rajinlah sholat, jangan pernah tinggalkan kewajibanmu pada Sang Pencipta. Berdoalah selalu untuk kesuksesanmu di dunia dan akhirat. Demi Tuhan, melihat kamu tetap istiqomah, tetap berjuang, dan tetap tersenyum dalam ketaatan sudah cukup membuat aku menjadi lelaki paling bangga yang pernah memilikimu.\n\nMaafkan aku, sayang... Maaf jika kehadiranku selama ini hanya memberikan beban. Maaf karena aku belum bisa jadi yang terbaik, belum bisa membahagiakanmu sepenuhnya, dan maaf karena aku tidak bisa menemanimu sampai kita menua bersama. Jika waktu bisa aku hentikan, aku hanya ingin tetap di sini, menjaga dan mencintaimu.\n\nNamun jika perpisahan ini adalah garisnya, ingatlah bahwa kamu pernah dicintai oleh seseorang dengan sangat tulus. Terima kasih sudah menemaniku di masa-masa sulit maupun senang. Sukseslah untuk masa depanmu, kejar semua mimpi kita yang belum sempat aku wujudkan bersamamu. Aku menyayangimu selamanya.";
+        const message1 = "Sayang, mungkin saat pesan ini muncul di hadapanmu, aku sudah tidak lagi bisa mendengar suaramu atau menggenggam tanganmu...\n\nMenulis ini rasanya berat, tapi aku ingin kamu tahu betapa berartinya kehadiranmu bagiku. Seandainya takdir memaksaku untuk pergi lebih dulu—entah karena sakit yang selama ini aku tahan, atau karena alasan lain yang menjadi rahasia Tuhan—aku ingin kamu tetap tegar menghadapi dunia.\n\nTolong, jaga dirimu baik-baik ya? Makanlah dengan teratur, istirahatlah yang cukup, dan jangan biarkan kesedihan menyelimuti harimu terlalu lama. Aku tahu mungkin akan sulit, tapi aku ingin melihatmu terus berjalan. \n\nKalau suatu hari nanti kamu merasa sangat rindu, kalau beban hidup terasa terlalu berat, atau jika kamu sekadar ingin bercerita tentang harimu... janganlah kamu merasa sendirian. Datanglah kepada Allah, bersujudlah dalam sholatmu. Ceritakan semuanya di sana. Aku selalu berharap, melalui perantara doa dan sujudmu, aku bisa tetap merasakan kehadiranmu dan mendengar setiap keluh kesahmu dari tempatku yang baru.\n\nAku ingin kamu menjadi sosok yang luar biasa. Rajinlah sholat, jangan pernah tinggalkan kewajibanmu pada Sang Pencipta. Berdoalah selalu untuk kesuksesanmu di dunia dan akhirat. Demi Tuhan, melihat kamu tetap istiqomah, tetap berjuang, dan tetap tersenyum dalam ketaatan sudah cukup membuat aku menjadi lelaki paling bangga yang pernah memilikimu.\n\nMaafkan aku, sayang... Maaf jika kehadiranku selama ini hanya memberikan beban. Maaf karena aku belum bisa jadi yang terbaik, belum bisa membahagiakanmu sepenuhnya, dan maaf karena aku tidak bisa menemanimu sampai kita menua bersama. Jika waktu bisa aku hentikan, aku hanya ingin tetap di sini, menjaga dan mencintaimu.\n\nNamun jika perpisahan ini adalah garisnya, ingatlah bahwa kamu pernah dicintai oleh seseorang dengan sangat tulus. Terima kasih sudah menemaniku di masa-masa sulit maupun senang. Sukseslah untuk masa depanmu, kejar semua mimpi kita yang belum sempat aku wujudkan bersamamu. Aku menyayangimu selamanya, lebih dari sekadar kata-kata yang bisa aku tuliskan di sini.";
 
-        const messageForFamily = "\n\n--- \n\nDan untuk keluargaku tercinta, terutama untuk Bapak...\n\nPak, maafkan Arifin ya. Maaf kalau selama ini Arifin hanya bisa merepotkan dan menjadi beban buat Bapak. Arifin tahu betapa keras perjuangan Bapak selama ini untuk keluarga, dan Arifin merasa sangat bersalah karena belum sempat membalas keringat Bapak dengan kebahagiaan atau kesuksesan yang Bapak impikan.\n\nTerima kasih sudah menjadi sosok yang kuat buat Arifin. Tolong maafkan segala kesalahan Arifin, segala kata-kata yang mungkin pernah menyakiti hati Bapak, dan segala sikap Arifin yang belum bisa membanggakan. Arifin sayang banget sama Bapak.\n\nUntuk saudara-saudaraku semuanya, maafkan aku jika selama hidupku aku belum bisa menjadi saudara yang baik. Maaf jika keadaanku sekarang justru menambah beban pikiran kalian. Aku sangat berterima kasih karena kalian sudah mau menerima dan menyayangiku apa adanya. Tolong jaga Bapak baik-baik ya, tetaplah rukun dan saling menguatkan. Arifin titip maaf untuk semua kesalahan yang pernah Arifin perbuat. Terima kasih atas segalanya.";
+        const message2 = "Untuk seluruh keluarga besarku yang kucintai, terutama untuk Bapak...\n\nPak, maafkan Arifin ya. Maaf kalau selama ini Arifin hanya bisa merepotkan dan menjadi beban buat Bapak. Arifin tahu betapa keras perjuangan Bapak selama ini untuk membesarkan Arifin, membanting tulang tanpa lelah, dan Arifin merasa sangat bersalah karena belum sempat membalas keringat Bapak dengan kebahagiaan atau kesuksesan yang Bapak impikan.\n\nTerima kasih sudah menjadi sosok yang luar biasa kuat buat Arifin. Tolong maafkan segala kesalahan Arifin, segala kata-kata yang mungkin pernah menyakiti hati Bapak, dan segala sikap Arifin yang belum bisa membanggakan. Arifin sayang banget sama Bapak. Tolong ikhlaskan Arifin ya, Pak...\n\nUntuk saudara-saudaraku semuanya, maafkan aku jika selama hidupku aku belum bisa menjadi saudara yang baik. Maaf jika keadaanku sekarang justru menambah beban pikiran kalian. Aku sangat berterima kasih karena kalian sudah mau menerima dan menyayangiku apa adanya. Tolong jaga Bapak baik-baik ya, tetaplah rukun dan saling menguatkan meski aku sudah tidak ada. Arifin titip maaf untuk semua kesalahan yang pernah Arifin perbuat. Terima kasih sudah menjadi bagian dari hidupku.";
 
-        const fullText = messageForHer + messageForFamily;
-        const typedTextElement = document.getElementById('typed-text');
-        const signature = document.getElementById('signature');
-        const timestampElement = document.getElementById('timestamp');
-        const divider = document.getElementById('divider');
+        let currentTab = 0;
+        let typingTimeout;
         const music = document.getElementById('sad-music');
+        const typedTextElement = document.getElementById('typed-text');
 
-        let index = 0;
+        function startApp() {
+            document.getElementById('start-screen').style.display = 'none';
+            document.getElementById('main-content').classList.remove('hidden');
+            document.getElementById('nav-btns').style.opacity = "1";
+            music.play();
+            updateTime();
+            switchTab(1);
+        }
 
-        function typeWriter() {
-            if (index < fullText.length) {
-                typedTextElement.textContent += fullText.charAt(index);
-                index++;
-                setTimeout(typeWriter, 65);
+        function switchTab(tabNum) {
+            if (currentTab === tabNum) return;
+            currentTab = tabNum;
+            clearTimeout(typingTimeout);
+            typedTextElement.textContent = "";
+            document.getElementById('cursor').style.display = 'inline-block';
+            document.getElementById('signature').style.opacity = "0";
+            document.getElementById('timestamp').style.opacity = "0";
+            document.getElementById('btn1').className = (tabNum === 1 ? "active" : "");
+            document.getElementById('btn2').className = (tabNum === 2 ? "active" : "");
+            const textToType = (tabNum === 1 ? message1 : message2);
+            typeWriter(textToType, 0);
+        }
+
+        function typeWriter(text, index) {
+            if (index < text.length) {
+                typedTextElement.textContent += text.charAt(index);
+                typingTimeout = setTimeout(() => typeWriter(text, index + 1), 60);
             } else {
-                divider.style.opacity = "1";
-                signature.style.opacity = "1";
-                timestampElement.style.opacity = "1";
                 document.getElementById('cursor').style.display = 'none';
+                document.getElementById('signature').style.opacity = "1";
+                document.getElementById('timestamp').style.opacity = "1";
             }
         }
 
         function updateTime() {
             const now = new Date();
             const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
-            const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-            
             const dayName = days[now.getDay()];
-            const dayDate = now.getDate();
-            const monthName = months[now.getMonth()];
-            const year = now.getFullYear();
             const hour = now.getHours().toString().padStart(2, '0');
             const minute = now.getMinutes().toString().padStart(2, '0');
-
-            timestampElement.textContent = `Tertulis pada: ${dayName}, ${dayDate} ${monthName} ${year} | ${hour}:${minute} WIB`;
-        }
-
-        function startApp() {
-            document.getElementById('start-screen').classList.add('hidden');
-            document.getElementById('main-content').classList.remove('hidden');
-            music.play();
-            updateTime();
-            setTimeout(typeWriter, 2000);
+            const date = now.getDate();
+            const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+            const monthName = months[now.getMonth()];
+            document.getElementById('timestamp').textContent = `Tertulis pada: ${dayName}, ${date} ${monthName} ${now.getFullYear()} | ${hour}:${minute} WIB`;
         }
     </script>
 </body>
